@@ -108,7 +108,6 @@ const FormPreview: React.FC = () => {
   const { currentForm } = useSelector((state: RootState) => state.formBuilder)
   const [formValues, setFormValues] = useState<FormValues>({})
   const [formErrors, setFormErrors] = useState<FormErrors>({})
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
   // Initialize form values with defaults
   useEffect(() => {
@@ -229,7 +228,6 @@ const FormPreview: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
 
     if (!currentForm) {
       alert('No form to submit')
@@ -267,7 +265,6 @@ const FormPreview: React.FC = () => {
       setTimeout(() => {
         setFormValues({})
         setFormErrors({})
-        setIsSubmitted(false)
       }, 2000)
     }
   }
@@ -482,7 +479,6 @@ const FormPreview: React.FC = () => {
                     onClick={() => {
                       setFormValues({})
                       setFormErrors({})
-                      setIsSubmitted(false)
                     }}
                   >
                     Reset Form

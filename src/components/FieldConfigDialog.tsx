@@ -6,10 +6,6 @@ import {
   DialogActions,
   Button,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Switch,
   FormControlLabel,
   Box,
@@ -21,8 +17,6 @@ import {
 } from '@mui/material'
 import { Add as AddIcon, Delete as DeleteIcon } from '@mui/icons-material'
 import { FormField, ValidationRule, SelectOption } from '../types'
-import { useSelector } from 'react-redux'
-import { RootState } from '../store'
 
 interface FieldConfigDialogProps {
   field: FormField
@@ -37,7 +31,6 @@ const FieldConfigDialog: React.FC<FieldConfigDialogProps> = ({
   onClose,
   onUpdate,
 }) => {
-  const { currentForm } = useSelector((state: RootState) => state.formBuilder)
   const [localField, setLocalField] = useState<FormField>(field)
   const [newOption, setNewOption] = useState({ label: '', value: '' })
 
